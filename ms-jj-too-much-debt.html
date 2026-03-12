@@ -35,13 +35,13 @@
 <meta name="topic" content="Creditor arrangement; creditor contact management; debt overwhelm; job loss debt; marriage breakdown debt; professional debt recovery">
 <meta name="summary" content="Ms. JJ faced job loss, marriage breakdown and bereavement by suicide within three months. Daily creditor calls compounded her mental health crisis. Lightside took over all creditor contact, placed authority on file with every lender, and negotiated a managed payment schedule. Ms. JJ went on to secure a Co-CEO role at an international charity, complete a Master's degree, develop her own business, and move to the countryside.">
 
-<!-- Google Analytics — replace GA_MEASUREMENT_ID before go-live -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<!-- Google Analytics — replace G-ZHB4VJ09BT before go-live -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHB4VJ09BT"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'GA_MEASUREMENT_ID');
+  gtag('config', 'G-ZHB4VJ09BT');
 </script>
 
 <!-- Cookie consent: hide banner if consent already given -->
@@ -513,7 +513,8 @@ a:hover { color: var(--site-link-hov); text-decoration: underline; }
   .outcome-list { grid-template-columns: 1fr; }
   .related-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  .trust-strip-inner { gap: 16px; }
+  .trust-strip-inner { flex-direction: column; align-items: flex-start; gap: 8px; padding: 12px 16px; }
+  .trust-item { font-size: 0.78rem; padding: 5px 0; }
   .trust-divider { display: none; }
   .inline-cta-wrap { flex-direction: column; align-items: flex-start; }
 }
@@ -608,8 +609,8 @@ a:hover { color: var(--site-link-hov); text-decoration: underline; }
       <svg class="util-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       01275 859143
     </a>
-    <a href="mailto:resolve@lightsidefinancial.com">
-      ✉ resolve@lightsidefinancial.com
+    <a href="/cdn-cgi/l/email-protection#5e2c3b2d3132283b1e323739362a2d373a3b3837303f303d373f32703d3133">
+      ✉ <span class="__cf_email__" data-cfemail="2c5e495f43405a496c40454b44585f4548494a45424d424f454d40024f4341">[email&#160;protected]</span>
     </a>
     <a href="/testimonials" class="util-testimonials">Client testimonials</a>
   </div>
@@ -653,7 +654,15 @@ a:hover { color: var(--site-link-hov); text-decoration: underline; }
       <p class="hero-lead">Three crises in three months left Ms. JJ overwhelmed by debt and daily creditor calls. When Lightside took over, she found the space to rebuild her career and her life.</p>
     </div>
     <div class="hero-image-wrap">
-      <img src="lightside_woman_portrait_1024x1536.webp" alt="A woman seated at a table by a window, looking calmly outward in warm morning light" width="360" height="340">
+      <picture>
+      <source srcset="lightside_woman_portrait_480x720.webp" media="(max-width: 600px)" type="image/webp">
+      <source srcset="lightside_woman_portrait_1024x1536.webp" type="image/webp">
+      <img src="lightside_woman_portrait_1024x1536.webp"
+        alt="A woman seated at a table by a window, looking calmly outward in warm morning light"
+        width="1024" height="1536"
+        loading="eager" decoding="async"
+        style="width:100%;height:340px;object-fit:cover;object-position:center 18%;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,0.35);">
+    </picture>
     </div>
   </div>
 </section>
@@ -860,7 +869,7 @@ a:hover { color: var(--site-link-hov); text-decoration: underline; }
     <div class="footer-contact">
       <h4>Contact us</h4>
       <p><a href="tel:01275859143">01275 859143</a></p>
-      <p><a href="mailto:resolve@lightsidefinancial.com">resolve@lightsidefinancial.com</a></p>
+      <p><a href="/cdn-cgi/l/email-protection#235146504c4f5546634f4a444b57504a4746454a4d424d404a424f0d404c4e"><span class="__cf_email__" data-cfemail="7d0f180e12110b183d11141a15090e1419181b14131c131e141c11531e1210">[email&#160;protected]</span></a></p>
       <p class="footer-address">
         Registered Office<br>
         Bourton Barns, Ebdon Lane<br>
@@ -885,7 +894,7 @@ a:hover { color: var(--site-link-hov); text-decoration: underline; }
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Nav toggle
 (function(){
   var btn = document.getElementById('nav-toggle');
@@ -914,20 +923,4 @@ a:hover { color: var(--site-link-hov); text-decoration: underline; }
       questions.forEach(function(q){
         q.setAttribute('aria-expanded','false');
         q.querySelector('.faq-icon').textContent = '+';
-        var ans = document.getElementById(q.getAttribute('aria-controls'));
-        if(ans) ans.classList.remove('open');
-      });
-      // Open this one if it was closed
-      if(!expanded){
-        btn.setAttribute('aria-expanded','true');
-        btn.querySelector('.faq-icon').textContent = '+';
-        var answer = document.getElementById(btn.getAttribute('aria-controls'));
-        if(answer) answer.classList.add('open');
-      }
-    });
-  });
-})();
-</script>
-
-</body>
-</html>
+        var ans = document.getElementById(q.getAttribute('aria-c
