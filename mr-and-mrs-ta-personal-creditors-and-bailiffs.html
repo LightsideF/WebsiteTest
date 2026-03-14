@@ -97,6 +97,8 @@
       font-family: 'Lato', sans-serif;
     }
     .util-bar a:hover { color: var(--site-accent); }
+    .util-contact-btn { background: none; border: none; font-size: 0.85rem; color: #fff; cursor: pointer; padding: 0; font-family: 'Lato', sans-serif; }
+    .util-contact-btn:hover { color: var(--site-accent); text-decoration: none; }
     .util-bar .util-testimonials { color: var(--site-accent); }
 
     /* ── Site header ── */
@@ -632,7 +634,7 @@
   <div class="util-bar">
     <div class="util-bar-inner">
       <a href="tel:+441275859143">01275 859143</a>
-      <a href="mailto:resolve@lightsidefinancial.com">✉︎ resolve@lightsidefinancial.com</a>
+      <button type="button" class="util-contact-btn" id="util-form-toggle" aria-expanded="false" aria-controls="inline-contact-form">✉︎ Send a message</button>
       <a href="/testimonials" class="util-testimonials">Client Testimonials</a>
     </div>
   </div>
@@ -983,11 +985,9 @@
       <div class="footer-contact">
         <h4>Contact us</h4>
         <a href="tel:+441275859143">01275 859143</a>
-        <a href="mailto:resolve@lightsidefinancial.com">✉︎ resolve@lightsidefinancial.com</a>
         <div class="footer-registered">
           <strong>Registered Office</strong><br>
-          Lightside (BPSC) Ltd<br>
-          Registered in England &amp; Wales
+          Bourton Barns, Ebdon Lane, Wick Saint Lawrence, Weston Super Mare. BS22 7YA
         </div>
       </div>
     </div>
@@ -1006,7 +1006,7 @@
 
   
   <!-- 1. Organization -->
-  <script type="application/ld+json">
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="application/ld+json">
   {
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -1330,16 +1330,32 @@
           if(j.success){ form.hidden = true; if(successEl) successEl.hidden = false; }
           else { throw new Error(j.message||'failed'); }
         })
-        .catch(function(){
-          if(errorEl) errorEl.hidden = false;
+        .catch(function(err){
+          console.error('Form submission error:', err);
           submitBtn.disabled = false;
           submitBtn.textContent = orig;
+          if(errorEl) errorEl.hidden = false;
         });
     });
   }
-  initForm('inline-form-toggle','inline-contact-form','inline-form','inline-error','inline-success');
-  initForm('footer-form-toggle','footer-contact-form','footer-form','footer-error','footer-success');
+
+  // Initialize all three forms
+  initForm('inline-form-toggle', 'inline-contact-form', 'inline-form', 'inline-error', 'inline-success');
+  initForm('util-form-toggle', 'inline-contact-form', 'inline-form', 'inline-error', 'inline-success');
+})();
+
+// ── Cookie consent ──────────────────────────────────────────────
+(function(){
+  var acceptBtn = document.getElementById('cookie-accept');
+  var declineBtn = document.getElementById('cookie-decline');
+  var banner = document.getElementById('cookie-banner');
+  
+  function handleConsent(accept){
+    localStorage.setItem('ls_cookie_consent', accept ? 'accepted' : 'essential');
+    if(banner) banner.style.display = 'none';
+  }
+  
+  if(acceptBtn) acceptBtn.addEventListener('click', function(){ handleConsent(true); });
+  if(declineBtn) declineBtn.addEventListener('click', function(){ handleConsent(false); });
 })();
 </script>
-</body>
-</html>
