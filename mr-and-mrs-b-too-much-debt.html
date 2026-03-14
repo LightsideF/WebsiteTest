@@ -117,7 +117,7 @@
 <!-- Google Analytics — replace G-ZHB4VJ09BT before go-live -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHB4VJ09BT"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ZHB4VJ09BT');</script>
-<script>(function(){var c=localStorage.getItem('ls_cookie_consent');if(c)document.getElementById('cookie-banner').style.display='none';})();</script>
+<script>(function(){var c=localStorage.getItem('ls_cookie_consent');if(c){var b=document.getElementById('cookie-banner');if(b)b.style.display='none';}})();</script>
 <style>
 /* ── Design Tokens ─────────────────────────────────────────────────────── */
 :root {
@@ -156,6 +156,8 @@ img { max-width: 100%; }
 .util-bar a { font-size: 0.85rem; color: rgba(255,255,255,0.82); display: flex; align-items: center; gap: 6px; }
 .util-bar a:hover { color: var(--site-accent); text-decoration: none; }
 .util-testimonials { color: var(--site-accent) !important; font-weight: 700; }
+.util-contact-btn { background: none; border: none; font-size: 0.85rem; color: rgba(255,255,255,0.82); cursor: pointer; padding: 0; font-family: inherit; display: flex; align-items: center; gap: 6px; }
+.util-contact-btn:hover { color: var(--site-accent); text-decoration: none; }
 
 /* ── Site Header ───────────────────────────────────────────────────────── */
 .site-header { background: var(--site-white); border-bottom: 3px solid var(--site-teal); position: sticky; top: 0; z-index: 200; height: 90px; }
@@ -271,6 +273,9 @@ img { max-width: 100%; }
 
 /* ── Footer CTA ────────────────────────────────────────────────────────── */
 .footer-cta-wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 24px 72px; }
+  .cta-form-header { text-align: center; margin-bottom: 24px; display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; }\n  .cta-form-header .btn-form-toggle { margin: 0; }
+  .cta-form-header .btn-primary { margin: 0; }\n  .cta-form-container { max-height: 800px; overflow: hidden; transition: all 0.3s ease; }\n  .cta-form-container[hidden] { max-height: 0; opacity: 0; margin: 0; padding: 0; }\n  .cta-form-container:not([hidden]) { opacity: 1; }
+  .cta-section-with-form { background: var(--site-navy); color: white; padding: 60px 24px; margin-bottom: 40px; }\n  .cta-form-wrap { max-width: 800px; margin: 0 auto; }\n  .cta-form-inner { text-align: center; }\n  .cta-form-inner h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 16px; line-height: 1.3; }\n  .cta-form-inner p { font-size: 1rem; margin-bottom: 32px; opacity: 0.85; line-height: 1.6; }\n  .cta-form-container { margin-top: 32px; text-align: left; }\n  .contact-form--cta { background: transparent; padding: 0; }\n  .contact-form--cta .cf-field { margin-bottom: 20px; }\n  .contact-form--cta label { color: white; }\n  .contact-form--cta input, .contact-form--cta textarea { background: white; color: var(--site-navy); }\n  .contact-form--cta .cf-privacy { color: rgba(255,255,255,0.75); font-size: 0.9rem; }\n  .contact-form--cta .cf-privacy a { color: white; text-decoration: underline; }\n  .contact-form--cta .cf-actions { margin-top: 24px; justify-content: center; }\n  .contact-form--cta .cf-error { background: rgba(255,100,100,0.1); border: 1px solid rgba(255,100,100,0.3); color: #ffcccc; padding: 16px; border-radius: 4px; margin-bottom: 16px; }\n  .contact-form--cta .cf-success { background: rgba(100,255,100,0.1); border: 1px solid rgba(100,255,100,0.3); color: #ccffcc; padding: 16px; border-radius: 4px; }
 .footer-cta { background: var(--site-navy); border-radius: 6px; padding: 48px 40px; text-align: center; }
 .footer-cta .fc-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--site-teal); margin-bottom: 10px; display: block; }
 .footer-cta h3 { font-family: 'Merriweather', serif; font-size: 1.3rem; font-weight: 700; color: var(--site-white); margin-bottom: 10px; line-height: 1.35; }
@@ -462,7 +467,8 @@ img { max-width: 100%; }
 <div class="util-bar">
   <div class="util-inner">
     <a href="tel:01275859143">01275 859143</a>
-    <a href="mailto:resolve@lightsidefinancial.com">✉︎ resolve@lightsidefinancial.com</a>
+    
+    <button type="button" class="util-contact-btn" id="util-form-toggle" aria-expanded="false" aria-controls="inline-contact-form">✉︎ Send a message</button>
     <a href="/testimonials" class="util-testimonials">Client testimonials</a>
   </div>
 </div>
@@ -613,9 +619,6 @@ img { max-width: 100%; }
         <p>We weren’t able to send your message — sorry about that. Please call us on <a href="tel:01275859143">01275 859143</a> and we’ll be glad to help.</p>
       </div>
     </form>
-    <div class="cf-success" id="inline-success" hidden>
-      <p class="cf-success-msg">&#10003;&ensp;Message sent — thank you. We’ll be in touch shortly. If you need to speak to someone sooner, call us on <a href="tel:01275859143">01275 859143</a>.</p>
-    </div>
   </div>
 
   <section class="solution-section" aria-label="How Lightside helped">
@@ -735,56 +738,71 @@ img { max-width: 100%; }
   </div>
 </section>
 
-<div class="footer-cta-wrap">
-  <div class="footer-cta">
-    <p class="fc-intro">Not sure if your situation is similar?</p>
-    <h3>Just get in touch &mdash; there is no charge and no obligation.</h3>
-    <p class="fc-sub">Most people come to us not knowing which option applies to them. That&rsquo;s exactly what the first conversation is for. We&rsquo;ll tell you honestly where you stand.</p>
-    <div class="cta-buttons">
-      <a href="tel:01275859143" class="btn-primary">Call 01275 859143</a>
-      <button type="button" class="btn-secondary btn-form-toggle" aria-expanded="false" aria-controls="footer-contact-form" id="footer-form-toggle">Send a message</button>
-    </div>
-        <div class="slide-form-wrap slide-form-wrap--dark" id="footer-contact-form" hidden>
-      <form class="contact-form contact-form--dark" id="footer-form" novalidate>
-        <input type="hidden" name="access_key" value="e4e9ba56-50dd-4c0e-8ef9-370731ca8359">
-        <input type="hidden" name="subject" value="Website enquiry — Too Much Debt">
-        <input type="hidden" name="from_name" value="Lightside Website">
-        <input type="text" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-        <div class="cf-row cf-row--2">
-          <div class="cf-field">
-            <label for="footer-name">Your name <span class="cf-required" aria-hidden="true">*</span></label>
-            <input type="text" id="footer-name" name="name" required autocomplete="name" placeholder="e.g. Sarah Jones">
-          </div>
-          <div class="cf-field">
-            <label for="footer-email">Email address <span class="cf-required" aria-hidden="true">*</span></label>
-            <input type="email" id="footer-email" name="email" required autocomplete="email" placeholder="e.g. sarah@example.com">
-          </div>
-        </div>
-        <div class="cf-field">
-          <label for="footer-phone">Phone number <span class="cf-optional">(optional)</span></label>
-          <input type="tel" id="footer-phone" name="phone" autocomplete="tel" placeholder="e.g. 07700 900000">
-        </div>
-        <div class="cf-field">
-          <label for="footer-message">Your message <span class="cf-required" aria-hidden="true">*</span></label>
-          <textarea id="footer-message" name="message" required rows="4" placeholder="Tell us a little about your situation — as much or as little as you like."></textarea>
-        </div>
-        <div class="cf-privacy">We handle your details in line with our <a href="/privacy-policy">Privacy Policy</a>. We will never share them with third parties.</div>
-        <div class="cf-actions">
-          <button type="submit" class="btn-primary cf-submit">Send message</button>
-          <button type="button" class="btn-form-cancel">Cancel</button>
-        </div>
-        <div class="cf-error" id="footer-error" hidden>
-          <p>We weren’t able to send your message — sorry about that. Please call us on <a href="tel:01275859143">01275 859143</a> and we’ll be glad to help.</p>
-        </div>
-      </form>
-      <div class="cf-success" id="footer-success" hidden>
-        <p class="cf-success-msg">&#10003;&ensp;Message sent — thank you. We’ll be in touch shortly. If you need to speak to someone sooner, call us on <a href="tel:01275859143">01275 859143</a>.</p>
-      </div>
     </div>
   </div>
 </div>
 
 <footer class="site-footer" aria-label="Site footer">
+
+  <section class="cta-section-with-form" id="cta-section-with-form" aria-label="Contact us directly">
+    <div class="cta-form-wrap">
+      <div class="cta-form-header">
+        <a href="tel:+441275859143" class="btn-primary">Call 01275 859143</a>
+        <button type="button" class="btn-secondary btn-form-toggle" aria-expanded="false" aria-controls="cta-form-container" id="cta-form-toggle">Send a message</button>
+      </div>
+      <div class="cta-form-inner">
+        <h2>Ready to talk? There's no charge for the first conversation.</h2>
+        <p>We work in complete confidence. You don't need to have all the answers — just get in touch.</p>
+        <p>Most people come to us not knowing which option applies to them. That's exactly what the first conversation is for. We'll tell you honestly where you stand.</p>
+        
+        <div class="cta-form-container" id="cta-form-container" hidden>
+          <form class="contact-form contact-form--cta" id="cta-form" novalidate>
+            <input type="hidden" name="access_key" value="e4e9ba56-50dd-4c0e-8ef9-370731ca8359">
+            <input type="hidden" name="subject" value="Website enquiry — CTA Form">
+            <input type="hidden" name="from_name" value="Lightside Website">
+            <input type="text" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+            
+            <div class="cf-row cf-row--2">
+              <div class="cf-field">
+                <label for="cta-name">Your name <span class="cf-required" aria-hidden="true">*</span></label>
+                <input type="text" id="cta-name" name="name" required autocomplete="name" placeholder="e.g. Sarah Jones">
+              </div>
+              <div class="cf-field">
+                <label for="cta-email">Email address <span class="cf-required" aria-hidden="true">*</span></label>
+                <input type="email" id="cta-email" name="email" required autocomplete="email" placeholder="e.g. sarah@example.com">
+              </div>
+            </div>
+            
+            <div class="cf-field">
+              <label for="cta-phone">Phone number <span class="cf-optional">(optional)</span></label>
+              <input type="tel" id="cta-phone" name="phone" autocomplete="tel" placeholder="e.g. 07700 900000">
+            </div>
+            
+            <div class="cf-field">
+              <label for="cta-message">Your message <span class="cf-required" aria-hidden="true">*</span></label>
+              <textarea id="cta-message" name="message" required rows="4" placeholder="Tell us a little about your situation — as much or as little as you like."></textarea>
+            </div>
+            
+            <div class="cf-privacy">We handle your details in line with our <a href="/privacy-policy">Privacy Policy</a>. We will never share them with third parties.</div>
+            
+            <div class="cf-actions">
+              <button type="submit" class="btn-primary cf-submit">Send message</button>
+              <button type="button" class="btn-form-cancel">Cancel</button>
+            </div>
+            
+            <div class="cf-error" id="cta-error" hidden>
+              <p>We weren't able to send your message — sorry about that. Please call us on <a href="tel:01275859143">01275 859143</a> and we'll be glad to help.</p>
+            </div>
+          </form>
+          
+          <div class="cf-success" id="cta-success" hidden>
+            <p class="cf-success-msg">✓ Message sent — thank you. We'll be in touch shortly. If you need to speak to someone sooner, call us on <a href="tel:01275859143">01275 859143</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="footer-logo-text">Lightside Financial</div>
@@ -796,12 +814,10 @@ img { max-width: 100%; }
     <div class="footer-contact">
       <h4>Contact us</h4>
       <p><a href="tel:01275859143">01275 859143</a></p>
-      <p><a href="mailto:resolve@lightsidefinancial.com">✉︎ resolve@lightsidefinancial.com</a></p>
+      <p></p>
       <p class="footer-address">
-        Registered Office<br>
-        Bourton Barns, Ebdon Lane<br>
-        Wick St Lawrence<br>
-        Weston-super-Mare, BS22 7YA
+        <strong>Registered Office</strong><br>
+        Bourton Barns, Ebdon Lane, Wick Saint Lawrence, Weston Super Mare. BS22 7YA
       </p>
     </div>
   </div>
@@ -819,113 +835,152 @@ img { max-width: 100%; }
   </div>
 </footer>
 
+
 <script>
-// ── Nav toggle ───────────────────────────────────────────────
-(function(){
-  var btn = document.getElementById('nav-toggle');
-  var nav = document.getElementById('nav-list');
-  if(btn && nav){
-    btn.addEventListener('click', function(){
-      var open = nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    document.addEventListener('click', function(e){
-      if(!btn.contains(e.target) && !nav.contains(e.target)){
-        nav.classList.remove('open');
-        btn.setAttribute('aria-expanded','false');
-      }
-    });
-  }
-})();
-
-// ── FAQ accordion ────────────────────────────────────────────
-(function(){
-  var questions = document.querySelectorAll('.faq-question');
-  questions.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var expanded = btn.getAttribute('aria-expanded') === 'true';
-      questions.forEach(function(q){
-        q.setAttribute('aria-expanded','false');
-        var icon = q.querySelector('.faq-icon');
-        if(icon) icon.textContent = '+';
-        var ans = document.getElementById(q.getAttribute('aria-controls'));
-        if(ans) ans.classList.remove('open');
+  // ── Nav toggle ──────────────────────────────────────────────
+  (function(){
+    var btn = document.getElementById('nav-toggle');
+    var nav = document.getElementById('nav-list');
+    if(btn && nav){
+      btn.addEventListener('click', function(){
+        var open = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
-      if(!expanded){
-        btn.setAttribute('aria-expanded','true');
-        var icon = btn.querySelector('.faq-icon');
-        if(icon) icon.textContent = '−';
-        var ans = document.getElementById(btn.getAttribute('aria-controls'));
-        if(ans) ans.classList.add('open');
-      }
+      document.addEventListener('click', function(e){
+        if(!btn.contains(e.target) && !nav.contains(e.target)){
+          nav.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+    }
+  })();
+
+  // ── FAQ accordion ────────────────────────────────────────────
+  (function(){
+    var questions = document.querySelectorAll('.faq-question');
+    questions.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        questions.forEach(function(q){
+          q.setAttribute('aria-expanded','false');
+          var icon = q.querySelector('.faq-icon');
+          if(icon) icon.textContent = '+';
+          var ans = document.getElementById(q.getAttribute('aria-controls'));
+          if(ans) ans.classList.remove('open');
+        });
+        if(!expanded){
+          btn.setAttribute('aria-expanded','true');
+          var icon = btn.querySelector('.faq-icon');
+          if(icon) icon.textContent = '−';
+          var ans = document.getElementById(btn.getAttribute('aria-controls'));
+          if(ans) ans.classList.add('open');
+        }
+      });
     });
-  });
-})();
+  })();
 
-// ── Slide-down contact forms ─────────────────────────────────
-(function(){
-  function initForm(toggleId, wrapperId, formId, errorId, successId){
-    var toggle   = document.getElementById(toggleId);
-    var wrapper  = document.getElementById(wrapperId);
-    var form     = document.getElementById(formId);
-    var errorEl  = document.getElementById(errorId);
-    var successEl= document.getElementById(successId);
-    if(!toggle || !wrapper || !form) return;
+  // ── Slide-down contact forms ─────────────────────────────────
+  (function(){
+    function initForm(toggleId, wrapperId, formId, errorId, successId){
+      var toggle   = document.getElementById(toggleId);
+      var wrapper  = document.getElementById(wrapperId);
+      var form     = document.getElementById(formId);
+      var errorEl  = document.getElementById(errorId);
+      var successEl= document.getElementById(successId);
+      if(!toggle || !wrapper || !form) return;
 
-    toggle.addEventListener('click', function(){
-      var isOpen = !wrapper.hidden;
-      if(isOpen){
-        wrapper.hidden = true;
-        toggle.setAttribute('aria-expanded','false');
-        toggle.textContent = 'Send a message';
-      } else {
-        wrapper.hidden = false;
-        toggle.setAttribute('aria-expanded','true');
-        toggle.textContent = 'Close form';
-        setTimeout(function(){ wrapper.scrollIntoView({behavior:'smooth',block:'nearest'}); }, 50);
+      toggle.addEventListener('click', function(){
+        var isOpen = !wrapper.hidden;
+        if(isOpen){
+          wrapper.hidden = true;
+          toggle.setAttribute('aria-expanded','false');
+          toggle.textContent = 'Send a message';
+        } else {
+          wrapper.hidden = false;
+          toggle.setAttribute('aria-expanded','true');
+          toggle.textContent = 'Close form';
+          setTimeout(function(){ wrapper.scrollIntoView({behavior:'smooth',block:'nearest'}); }, 50);
+        }
+      });
+
+      var cancelBtn = form.querySelector('.btn-form-cancel');
+      if(cancelBtn){
+        cancelBtn.addEventListener('click', function(){
+          wrapper.hidden = true;
+          toggle.setAttribute('aria-expanded','false');
+          toggle.textContent = 'Send a message';
+          form.reset();
+          if(errorEl) errorEl.hidden = true;
+        });
       }
-    });
 
-    var cancelBtn = form.querySelector('.btn-form-cancel');
-    if(cancelBtn){
-      cancelBtn.addEventListener('click', function(){
-        wrapper.hidden = true;
-        toggle.setAttribute('aria-expanded','false');
-        toggle.textContent = 'Send a message';
-        form.reset();
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
         if(errorEl) errorEl.hidden = true;
+        var valid = true;
+        form.querySelectorAll('[required]').forEach(function(f){
+          if(!f.value.trim()){ valid = false; f.focus(); }
+        });
+        if(!valid) return;
+        var submitBtn = form.querySelector('.cf-submit');
+        var orig = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+        fetch('https://api.web3forms.com/submit', { method:'POST', body: new FormData(form) })
+          .then(function(r){ return r.json(); })
+          .then(function(j){
+            if(j.success){ form.hidden = true; if(successEl) successEl.hidden = false; }
+            else { throw new Error(j.message||'failed'); }
+          })
+          .catch(function(err){
+            submitBtn.disabled = false;
+            submitBtn.textContent = orig;
+            if(errorEl) errorEl.hidden = false;
+          });
       });
     }
 
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      if(errorEl) errorEl.hidden = true;
-      var valid = true;
-      form.querySelectorAll('[required]').forEach(function(f){
-        if(!f.value.trim()){ valid = false; f.focus(); }
+    initForm('inline-form-toggle', 'inline-contact-form', 'inline-form', 'inline-error', 'inline-success');
+    initForm('util-form-toggle', 'inline-contact-form', 'inline-form', 'inline-error', 'inline-success');
+  initForm('footer-form-toggle', 'inline-contact-form', 'inline-form', 'inline-error', 'inline-success');
+  // ── CTA form toggle and cancel ──────────────────────────────
+  (function(){
+    var toggle = document.getElementById('cta-form-toggle');
+    var container = document.getElementById('cta-form-container');
+    var form = document.getElementById('cta-form');
+    var cancelBtn = form.querySelector('.btn-form-cancel');
+    
+    if(toggle && container && form){
+      toggle.addEventListener('click', function(){
+        var isOpen = !container.hidden;
+        if(isOpen){
+          container.hidden = true;
+          toggle.setAttribute('aria-expanded','false');
+          toggle.textContent = 'Send a message';
+        } else {
+          container.hidden = false;
+          toggle.setAttribute('aria-expanded','true');
+          toggle.textContent = 'Close form';
+          setTimeout(function(){
+            container.scrollIntoView({behavior:'smooth',block:'nearest'});
+          }, 50);
+        }
       });
-      if(!valid) return;
-      var submitBtn = form.querySelector('.cf-submit');
-      var orig = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending…';
-      fetch('https://api.web3forms.com/submit', { method:'POST', body: new FormData(form) })
-        .then(function(r){ return r.json(); })
-        .then(function(j){
-          if(j.success){ form.hidden = true; if(successEl) successEl.hidden = false; }
-          else { throw new Error(j.message||'failed'); }
-        })
-        .catch(function(){
-          if(errorEl) errorEl.hidden = false;
-          submitBtn.disabled = false;
-          submitBtn.textContent = orig;
+      
+      if(cancelBtn){
+        cancelBtn.addEventListener('click', function(){
+          container.hidden = true;
+          toggle.setAttribute('aria-expanded','false');
+          toggle.textContent = 'Send a message';
+          form.reset();
+          document.getElementById('cta-error').hidden = true;
         });
-    });
-  }
+      }
+    }
+  })();
+  })();
 
-  initForm('inline-form-toggle','inline-contact-form','inline-form','inline-error','inline-success');
-  initForm('footer-form-toggle','footer-contact-form','footer-form','footer-error','footer-success');
-})();
 </script>
+
 </body>
 </html>
