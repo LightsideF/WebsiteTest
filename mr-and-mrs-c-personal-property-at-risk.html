@@ -238,6 +238,8 @@ a:hover { color: var(--site-teal-dk); text-decoration: underline; }
 .util-bar a { font-size: 0.85rem; color: rgba(255,255,255,0.85); }
 .util-bar a:hover { color: var(--site-accent); text-decoration: none; }
 .util-testimonials { color: var(--site-accent) !important; font-weight: 700; }
+.util-contact-btn { background: none; border: none; font-size: 0.85rem; color: rgba(255,255,255,0.85); cursor: pointer; padding: 0; text-decoration: none; font-family: inherit; }
+.util-contact-btn:hover { color: var(--site-accent); text-decoration: none; }
 
 /* SITE HEADER */
 .site-header { background: var(--site-white); border-bottom: 3px solid var(--site-teal); position: sticky; top: 0; z-index: 200; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
@@ -553,7 +555,7 @@ a:hover { color: var(--site-teal-dk); text-decoration: underline; }
 <div class="util-bar">
   <div class="util-inner">
     <a href="tel:01275859143">01275 859143</a>
-    <a href="mailto:resolve@lightsidefinancial.com">✉︎ resolve@lightsidefinancial.com</a>
+    <button type="button" class="util-contact-btn" id="util-form-toggle" aria-expanded="false" aria-controls="inline-contact-form">✉︎ Send a message</button>
     <a href="/testimonials" class="util-testimonials">Testimonials</a>
   </div>
 </div>
@@ -882,7 +884,6 @@ a:hover { color: var(--site-teal-dk); text-decoration: underline; }
     <div class="footer-contact">
       <h4>Contact us</h4>
       <p><a href="tel:01275859143">01275 859143</a></p>
-      <p><a href="mailto:resolve@lightsidefinancial.com">✉︎ resolve@lightsidefinancial.com</a></p>
       <p class="footer-reg">
         Bourton Barns, Ebdon Lane,<br>
         Wick St Lawrence,<br>
@@ -1000,17 +1001,33 @@ a:hover { color: var(--site-teal-dk); text-decoration: underline; }
           if(j.success){ form.hidden = true; if(successEl) successEl.hidden = false; }
           else { throw new Error(j.message||'failed'); }
         })
-        .catch(function(){
-          if(errorEl) errorEl.hidden = false;
+        .catch(function(err){
+          console.error('Form submission error:', err);
           submitBtn.disabled = false;
           submitBtn.textContent = orig;
+          if(errorEl) errorEl.hidden = false;
         });
     });
   }
 
-  initForm('inline-form-toggle','inline-contact-form','inline-form','inline-error','inline-success');
-  initForm('footer-form-toggle','footer-contact-form','footer-form','footer-error','footer-success');
+  // Initialize both forms
+  initForm('inline-form-toggle', 'inline-contact-form', 'inline-form', 'inline-error', 'inline-success');
+  initForm('footer-form-toggle', 'footer-contact-form', 'footer-form', 'footer-error', 'footer-success');
+  initForm('util-form-toggle', 'inline-contact-form', 'inline-form', 'inline-error', 'inline-success');
+})();
+
+// ── Cookie consent ──────────────────────────────────────────────
+(function(){
+  var acceptBtn = document.getElementById('cookie-accept');
+  var declineBtn = document.getElementById('cookie-decline');
+  var banner = document.getElementById('cookie-banner');
+  
+  function handleConsent(accept){
+    localStorage.setItem('ls_cookie_consent', accept ? 'accepted' : 'essential');
+    if(banner) banner.style.display = 'none';
+  }
+  
+  if(acceptBtn) acceptBtn.addEventListener('click', function(){ handleConsent(true); });
+  if(declineBtn) declineBtn.addEventListener('click', function(){ handleConsent(false); });
 })();
 </script>
-</body>
-</html>
