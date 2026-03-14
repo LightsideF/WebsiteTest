@@ -469,7 +469,7 @@ a:hover { color: var(--site-link-hov); text-decoration: underline; }
 .footer-cta .cta-buttons { justify-content: center; }
 .footer-cta .btn-primary { background: var(--site-teal); }
 .footer-cta .btn-primary:hover { background: var(--site-teal-dk); }
-.footer-cta .btn-secondary { border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.85); }
+.footer-cta .btn-secondary { border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.85); background: transparent; }
 .footer-cta .btn-secondary:hover { background: rgba(255,255,255,0.1); color: var(--site-white); text-decoration: none; }
 
 /* Footer */
@@ -722,8 +722,8 @@ a:hover { color: var(--site-link-hov); text-decoration: underline; }
       <svg class="util-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       01275 859143
     </a>
-    <a href="mailto:resolve@lightsidefinancial.com">
-      ✉ resolve@lightsidefinancial.com
+    <a href="/cdn-cgi/l/email-protection#681a0d1b07041e0d2804010f001c1b010c0d0e010609060b010904460b0705">
+      ✉ <span class="__cf_email__" data-cfemail="6b190e1804071d0e2b07020c031f18020f0e0d02050a0508020a0745080406">[email&#160;protected]</span>
     </a>
     <a href="/testimonials" class="util-testimonials">Client testimonials</a>
   </div>
@@ -1056,7 +1056,7 @@ a:hover { color: var(--site-link-hov); text-decoration: underline; }
     <div class="footer-contact">
       <h4>Contact us</h4>
       <p><a href="tel:01275859143">01275 859143</a></p>
-      <p><a href="mailto:resolve@lightsidefinancial.com">resolve@lightsidefinancial.com</a></p>
+      <p><a href="/cdn-cgi/l/email-protection#8cfee9ffe3e0fae9cce0e5ebe4f8ffe5e8e9eae5e2ede2efe5ede0a2efe3e1"><span class="__cf_email__" data-cfemail="e89a8d9b87849e8da884818f809c9b818c8d8e818689868b818984c68b8785">[email&#160;protected]</span></a></p>
       <p class="footer-address">
         Registered Office<br>
         Bourton Barns, Ebdon Lane<br>
@@ -1081,7 +1081,7 @@ a:hover { color: var(--site-link-hov); text-decoration: underline; }
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── Nav toggle ───────────────────────────────────────────────
 (function(){
   var btn = document.getElementById('nav-toggle');
@@ -1193,19 +1193,4 @@ a:hover { color: var(--site-link-hov); text-decoration: underline; }
         } else {
           throw new Error(json.message || 'Submission failed');
         }
-      })
-      .catch(function(){
-        if(errorEl) errorEl.hidden = false;
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalLabel;
-      });
-    });
-  }
-
-  initForm('inline-form-toggle', 'inline-contact-form', 'inline-form', 'inline-error', 'inline-success');
-  initForm('footer-form-toggle', 'footer-contact-form', 'footer-form', 'footer-error', 'footer-success');
-
-})();
-</script>
-</body>
-</html>
+      }
