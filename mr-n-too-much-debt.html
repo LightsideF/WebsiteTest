@@ -1186,7 +1186,7 @@ a:hover { color: var(--site-link-hov); text-decoration: underline; }
         } else {
           throw new Error(json.message || 'Submission failed');
         }
-      })      })
+      })
       .catch(function(err){
         console.error('Form submission error:', err);
         submitBtn.disabled = false;
