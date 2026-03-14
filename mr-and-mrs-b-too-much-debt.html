@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>We Owed &pound;335,000. Our Home Was Worth &pound;1.4 Million. We Still Kept It. | Lightside Financial</title>
 <meta name="description" content="When a construction business collapsed and personal guarantees crystallised, Mr and Mrs B faced over £335,000 of personal debt. A full and final IVA resolved everything in ten months — without losing the family home. A real case study from Lightside Financial.">
-<link rel="canonical" href="https://www.lightsidefinancial.com/personal/too-much-debt/mr-and-mrs-b">
+<link rel="canonical" href="https://www.lightsidefinancial.com/mr-and-mrs-b-too-much-debt">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://www.lightsidefinancial.com/personal/too-much-debt/mr-and-mrs-b">
+<meta property="og:url" content="https://www.lightsidefinancial.com/mr-and-mrs-b-too-much-debt">
 <meta property="og:title" content="We Owed &pound;335,000. Our Home Was Worth &pound;1.4 Million. We Still Kept It.">
 <meta property="og:description" content="When a construction business collapsed and personal guarantees crystallised, Mr and Mrs B faced over £335,000 of personal debt. A full and final IVA resolved everything in ten months — without losing the family home. A real case study from Lightside Financial.">
 <meta name="twitter:card" content="summary_large_image">
@@ -39,7 +39,7 @@
 {
   "@context":"https://schema.org",
   "@type":"Article",
-  "mainEntityOfPage":{"@type":"WebPage","@id":"https://www.lightsidefinancial.com/personal/too-much-debt/mr-and-mrs-b"},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://www.lightsidefinancial.com/mr-and-mrs-b-too-much-debt"},
   "headline":"We Owed £335,000. Our Home Was Worth £1.4 Million. We Still Kept It.",
   "description":"When a construction business collapsed and personal guarantees crystallised, Mr and Mrs B faced over £335,000 of personal debt. A full and final IVA resolved everything in ten months — without losing the family home. A real case study from Lightside Financial.",
   "keywords":"full and final IVA UK, personal guarantee construction business, IVA lump sum home protection, business liquidation personal debt, how does equity affect IVA, personal guarantee what happens when business fails, IVA vs bankruptcy home, can you keep your house in an IVA, HM Land Registry restriction debt, IVA creditor vote majority, can directors have IVA UK, IVA after business failure, insolvency practitioner duty creditors, third party lump sum IVA loan",
@@ -68,14 +68,14 @@
 {
   "@context":"https://schema.org",
   "@type":"WebPage",
-  "@id":"https://www.lightsidefinancial.com/personal/too-much-debt/mr-and-mrs-b",
+  "@id":"https://www.lightsidefinancial.com/mr-and-mrs-b-too-much-debt",
   "name":"We Owed £335,000. Our Home Was Worth £1.4 Million. We Still Kept It.",
   "speakable":{"@type":"SpeakableSpecification","cssSelector":[".page-hero h1",".hero-lead",".context-block",".pull-quote blockquote",".situation-body",".solution-body",".closing-body",".outcome-grid",".faq-list"]},
   "breadcrumb":{"@type":"BreadcrumbList","itemListElement":[
     {"@type":"ListItem","position":1,"name":"Home","item":"https://www.lightsidefinancial.com/"},
     {"@type":"ListItem","position":2,"name":"Personal Debt Solutions","item":"https://www.lightsidefinancial.com/personal"},
     {"@type":"ListItem","position":3,"name":"Too Much Debt","item":"https://www.lightsidefinancial.com/personal/too-much-debt"},
-    {"@type":"ListItem","position":4,"name":"Mr & Mrs B — Full and Final IVA","item":"https://www.lightsidefinancial.com/personal/too-much-debt/mr-and-mrs-b"}
+    {"@type":"ListItem","position":4,"name":"Mr & Mrs B — Full and Final IVA","item":"https://www.lightsidefinancial.com/mr-and-mrs-b-too-much-debt"}
   ]}
 }
 </script>
@@ -278,7 +278,7 @@ img { max-width: 100%; }
 .footer-cta .cta-buttons { justify-content: center; }
 .footer-cta .btn-primary { background: var(--site-teal); }
 .footer-cta .btn-primary:hover { background: var(--site-teal-dk); }
-.footer-cta .btn-secondary { border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.85); }
+.footer-cta .btn-secondary { border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.85);  background: transparent; }
 .footer-cta .btn-secondary:hover { background: rgba(255,255,255,0.1); color: var(--site-white); text-decoration: none; }
 
 /* ── Footer ────────────────────────────────────────────────────────────── */
@@ -362,6 +362,89 @@ img { max-width: 100%; }
   .site-nav ul li a { min-height: 44px; display: flex; align-items: center; }
   .footer-contact a { min-height: 44px; display: inline-flex; align-items: center; }
 }
+
+/* ── Contact forms ──────────────────────────────────────────── */
+.slide-form-wrap { overflow: hidden; }
+.slide-form-wrap[hidden] { display: none; }
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.cf-row { display: grid; gap: 16px; }
+.cf-row--2 { grid-template-columns: 1fr 1fr; }
+.cf-field { display: flex; flex-direction: column; gap: 6px; }
+.cf-field label { font-size: 0.85rem; font-weight: 700; color: #2a2a2a; }
+.cf-required { color: var(--site-accent, #e05a2b); }
+.cf-optional { font-weight: 400; font-size: 0.80rem; opacity: 0.7; }
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+  width: 100%; padding: 10px 14px; border-radius: 4px; font-size: 0.92rem;
+  font-family: 'Lato', sans-serif; line-height: 1.5; transition: border-color 0.18s;
+  box-sizing: border-box; border: 1.5px solid #d0d7e2; background: #fff; color: #2a2a2a;
+}
+.contact-form textarea { resize: vertical; min-height: 110px; }
+.contact-form input:focus, .contact-form textarea:focus {
+  outline: none; border-color: var(--site-teal, #2a8b8b);
+  box-shadow: 0 0 0 3px rgba(42,139,139,0.15);
+}
+.slide-form-wrap--light { padding: 28px 0 8px; }
+.slide-form-wrap--dark { padding: 32px 0 0; }
+.contact-form--dark input[type="text"],
+.contact-form--dark input[type="email"],
+.contact-form--dark input[type="tel"],
+.contact-form--dark textarea {
+  border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.07); color: #fff;
+}
+.contact-form--dark input::placeholder,
+.contact-form--dark textarea::placeholder { color: rgba(255,255,255,0.35); }
+.contact-form--dark input:focus, .contact-form--dark textarea:focus {
+  border-color: var(--site-teal, #2a8b8b);
+  box-shadow: 0 0 0 3px rgba(42,139,139,0.25); background: rgba(255,255,255,0.11);
+}
+.contact-form--dark .cf-field label { color: rgba(255,255,255,0.85); }
+.contact-form--dark .cf-optional { color: rgba(255,255,255,0.5); }
+.cf-privacy { font-size: 0.80rem; line-height: 1.6; color: rgba(0,0,0,0.45); }
+.contact-form--dark .cf-privacy { color: rgba(255,255,255,0.45); }
+.cf-privacy a { color: inherit; text-decoration: underline; }
+.cf-privacy a:hover { color: var(--site-teal, #2a8b8b); }
+.contact-form--dark .cf-privacy a:hover { color: var(--site-accent, #e05a2b); }
+.cf-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.cf-submit { cursor: pointer; border: none; }
+.cf-submit[disabled] { opacity: 0.6; cursor: not-allowed; }
+.btn-form-cancel {
+  background: none; border: none; cursor: pointer; font-size: 0.88rem;
+  font-family: 'Lato', sans-serif; font-weight: 700; text-decoration: underline;
+  color: rgba(0,0,0,0.45); padding: 0;
+}
+.btn-form-cancel:hover { color: var(--site-navy, #1e3a5f); }
+.contact-form--dark .btn-form-cancel { color: rgba(255,255,255,0.45); }
+.contact-form--dark .btn-form-cancel:hover { color: rgba(255,255,255,0.9); }
+.cf-error { margin-top: 4px; }
+.cf-error p {
+  font-size: 0.88rem; line-height: 1.6; color: #c0392b;
+  background: #fdf0ee; border: 1px solid #f5c6c0; border-radius: 4px; padding: 12px 16px;
+}
+.cf-error a { color: #c0392b; font-weight: 700; }
+.contact-form--dark .cf-error p {
+  background: rgba(192,57,43,0.18); border-color: rgba(192,57,43,0.4); color: #f5a89e;
+}
+.contact-form--dark .cf-error a { color: #f5a89e; }
+.cf-success { padding: 20px 0 8px; }
+.cf-success-msg {
+  font-size: 0.95rem; line-height: 1.7; color: #1a6b3c;
+  background: #eaf6f0; border: 1px solid #b2dfc8; border-radius: 4px; padding: 16px 20px; display: block;
+}
+.cf-success-msg a { color: #1a6b3c; font-weight: 700; }
+.contact-form--dark .cf-success-msg {
+  background: rgba(26,107,60,0.2); border-color: rgba(26,107,60,0.4); color: #7ddba8;
+}
+.contact-form--dark .cf-success-msg a { color: #7ddba8; }
+@media (max-width: 600px) {
+  .cf-row--2 { grid-template-columns: 1fr; }
+  .cf-actions { flex-direction: column; align-items: stretch; }
+  .cf-submit { width: 100%; min-height: 48px; text-align: center; }
+  .btn-form-cancel { text-align: center; padding: 8px 0; }
+}
+
 </style>
 </head>
 <body>
@@ -379,7 +462,7 @@ img { max-width: 100%; }
 <div class="util-bar">
   <div class="util-inner">
     <a href="tel:01275859143">01275 859143</a>
-    <a href="/cdn-cgi/l/email-protection#1d6f786e72716b785d71747a75696e7479787b74737c737e747c71337e7270">&#9993; <span class="__cf_email__" data-cfemail="681a0d1b07041e0d2804010f001c1b010c0d0e010609060b010904460b0705">[email&#160;protected]</span></a>
+    <a href="mailto:resolve@lightsidefinancial.com">✉︎ resolve@lightsidefinancial.com</a>
     <a href="/testimonials" class="util-testimonials">Client testimonials</a>
   </div>
 </div>
@@ -493,7 +576,45 @@ img { max-width: 100%; }
     </div>
     <div class="cta-buttons">
       <a href="tel:01275859143" class="btn-primary">Call 01275 859143</a>
-      <a href="/contact" class="btn-secondary">Send a message</a>
+      <button type="button" class="btn-secondary btn-form-toggle" aria-expanded="false" aria-controls="inline-contact-form" id="inline-form-toggle">Send a message</button>
+    </div>
+  </div>
+    </div>
+  <div class="slide-form-wrap slide-form-wrap--light" id="inline-contact-form" hidden>
+    <form class="contact-form" id="inline-form" novalidate>
+      <input type="hidden" name="access_key" value="e4e9ba56-50dd-4c0e-8ef9-370731ca8359">
+      <input type="hidden" name="subject" value="Website enquiry — Too Much Debt">
+      <input type="hidden" name="from_name" value="Lightside Website">
+      <input type="text" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="cf-row cf-row--2">
+        <div class="cf-field">
+          <label for="inline-name">Your name <span class="cf-required" aria-hidden="true">*</span></label>
+          <input type="text" id="inline-name" name="name" required autocomplete="name" placeholder="e.g. Sarah Jones">
+        </div>
+        <div class="cf-field">
+          <label for="inline-email">Email address <span class="cf-required" aria-hidden="true">*</span></label>
+          <input type="email" id="inline-email" name="email" required autocomplete="email" placeholder="e.g. sarah@example.com">
+        </div>
+      </div>
+      <div class="cf-field">
+        <label for="inline-phone">Phone number <span class="cf-optional">(optional)</span></label>
+        <input type="tel" id="inline-phone" name="phone" autocomplete="tel" placeholder="e.g. 07700 900000">
+      </div>
+      <div class="cf-field">
+        <label for="inline-message">Your message <span class="cf-required" aria-hidden="true">*</span></label>
+        <textarea id="inline-message" name="message" required rows="4" placeholder="Tell us a little about your situation — as much or as little as you like."></textarea>
+      </div>
+      <div class="cf-privacy">We handle your details in line with our <a href="/privacy-policy">Privacy Policy</a>. We will never share them with third parties.</div>
+      <div class="cf-actions">
+        <button type="submit" class="btn-primary cf-submit">Send message</button>
+        <button type="button" class="btn-form-cancel">Cancel</button>
+      </div>
+      <div class="cf-error" id="inline-error" hidden>
+        <p>We weren’t able to send your message — sorry about that. Please call us on <a href="tel:01275859143">01275 859143</a> and we’ll be glad to help.</p>
+      </div>
+    </form>
+    <div class="cf-success" id="inline-success" hidden>
+      <p class="cf-success-msg">&#10003;&ensp;Message sent — thank you. We’ll be in touch shortly. If you need to speak to someone sooner, call us on <a href="tel:01275859143">01275 859143</a>.</p>
     </div>
   </div>
 
@@ -621,7 +742,44 @@ img { max-width: 100%; }
     <p class="fc-sub">Most people come to us not knowing which option applies to them. That&rsquo;s exactly what the first conversation is for. We&rsquo;ll tell you honestly where you stand.</p>
     <div class="cta-buttons">
       <a href="tel:01275859143" class="btn-primary">Call 01275 859143</a>
-      <a href="/contact" class="btn-secondary">Send a message</a>
+      <button type="button" class="btn-secondary btn-form-toggle" aria-expanded="false" aria-controls="footer-contact-form" id="footer-form-toggle">Send a message</button>
+    </div>
+        <div class="slide-form-wrap slide-form-wrap--dark" id="footer-contact-form" hidden>
+      <form class="contact-form contact-form--dark" id="footer-form" novalidate>
+        <input type="hidden" name="access_key" value="e4e9ba56-50dd-4c0e-8ef9-370731ca8359">
+        <input type="hidden" name="subject" value="Website enquiry — Too Much Debt">
+        <input type="hidden" name="from_name" value="Lightside Website">
+        <input type="text" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="cf-row cf-row--2">
+          <div class="cf-field">
+            <label for="footer-name">Your name <span class="cf-required" aria-hidden="true">*</span></label>
+            <input type="text" id="footer-name" name="name" required autocomplete="name" placeholder="e.g. Sarah Jones">
+          </div>
+          <div class="cf-field">
+            <label for="footer-email">Email address <span class="cf-required" aria-hidden="true">*</span></label>
+            <input type="email" id="footer-email" name="email" required autocomplete="email" placeholder="e.g. sarah@example.com">
+          </div>
+        </div>
+        <div class="cf-field">
+          <label for="footer-phone">Phone number <span class="cf-optional">(optional)</span></label>
+          <input type="tel" id="footer-phone" name="phone" autocomplete="tel" placeholder="e.g. 07700 900000">
+        </div>
+        <div class="cf-field">
+          <label for="footer-message">Your message <span class="cf-required" aria-hidden="true">*</span></label>
+          <textarea id="footer-message" name="message" required rows="4" placeholder="Tell us a little about your situation — as much or as little as you like."></textarea>
+        </div>
+        <div class="cf-privacy">We handle your details in line with our <a href="/privacy-policy">Privacy Policy</a>. We will never share them with third parties.</div>
+        <div class="cf-actions">
+          <button type="submit" class="btn-primary cf-submit">Send message</button>
+          <button type="button" class="btn-form-cancel">Cancel</button>
+        </div>
+        <div class="cf-error" id="footer-error" hidden>
+          <p>We weren’t able to send your message — sorry about that. Please call us on <a href="tel:01275859143">01275 859143</a> and we’ll be glad to help.</p>
+        </div>
+      </form>
+      <div class="cf-success" id="footer-success" hidden>
+        <p class="cf-success-msg">&#10003;&ensp;Message sent — thank you. We’ll be in touch shortly. If you need to speak to someone sooner, call us on <a href="tel:01275859143">01275 859143</a>.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -638,7 +796,7 @@ img { max-width: 100%; }
     <div class="footer-contact">
       <h4>Contact us</h4>
       <p><a href="tel:01275859143">01275 859143</a></p>
-      <p><a href="/cdn-cgi/l/email-protection#245641574b48524164484d434c50574d4041424d4a454a474d45480a474b49"><span class="__cf_email__" data-cfemail="81f3e4f2eeedf7e4c1ede8e6e9f5f2e8e5e4e7e8efe0efe2e8e0edafe2eeec">[email&#160;protected]</span></a></p>
+      <p><a href="mailto:resolve@lightsidefinancial.com">✉︎ resolve@lightsidefinancial.com</a></p>
       <p class="footer-address">
         Registered Office<br>
         Bourton Barns, Ebdon Lane<br>
@@ -661,15 +819,113 @@ img { max-width: 100%; }
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-(function(){var c=localStorage.getItem('ls_cookie_consent');if(c)document.getElementById('cookie-banner').style.display='none';})();
-document.querySelectorAll('.faq-question').forEach(function(btn){
-  btn.addEventListener('click',function(){
-    var open=this.getAttribute('aria-expanded')==='true';
-    document.querySelectorAll('.faq-question').forEach(function(b){b.setAttribute('aria-expanded','false');});
-    document.querySelectorAll('.faq-answer').forEach(function(a){a.classList.remove('open');});
-    if(!open){this.setAttribute('aria-expanded','true');document.getElementById(this.getAttribute('aria-controls')).classList.add('open');}
-  });
-});
+<script>
+// ── Nav toggle ───────────────────────────────────────────────
 (function(){
-  var btn=document.getElementById('nav
+  var btn = document.getElementById('nav-toggle');
+  var nav = document.getElementById('nav-list');
+  if(btn && nav){
+    btn.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function(e){
+      if(!btn.contains(e.target) && !nav.contains(e.target)){
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+})();
+
+// ── FAQ accordion ────────────────────────────────────────────
+(function(){
+  var questions = document.querySelectorAll('.faq-question');
+  questions.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      questions.forEach(function(q){
+        q.setAttribute('aria-expanded','false');
+        var icon = q.querySelector('.faq-icon');
+        if(icon) icon.textContent = '+';
+        var ans = document.getElementById(q.getAttribute('aria-controls'));
+        if(ans) ans.classList.remove('open');
+      });
+      if(!expanded){
+        btn.setAttribute('aria-expanded','true');
+        var icon = btn.querySelector('.faq-icon');
+        if(icon) icon.textContent = '−';
+        var ans = document.getElementById(btn.getAttribute('aria-controls'));
+        if(ans) ans.classList.add('open');
+      }
+    });
+  });
+})();
+
+// ── Slide-down contact forms ─────────────────────────────────
+(function(){
+  function initForm(toggleId, wrapperId, formId, errorId, successId){
+    var toggle   = document.getElementById(toggleId);
+    var wrapper  = document.getElementById(wrapperId);
+    var form     = document.getElementById(formId);
+    var errorEl  = document.getElementById(errorId);
+    var successEl= document.getElementById(successId);
+    if(!toggle || !wrapper || !form) return;
+
+    toggle.addEventListener('click', function(){
+      var isOpen = !wrapper.hidden;
+      if(isOpen){
+        wrapper.hidden = true;
+        toggle.setAttribute('aria-expanded','false');
+        toggle.textContent = 'Send a message';
+      } else {
+        wrapper.hidden = false;
+        toggle.setAttribute('aria-expanded','true');
+        toggle.textContent = 'Close form';
+        setTimeout(function(){ wrapper.scrollIntoView({behavior:'smooth',block:'nearest'}); }, 50);
+      }
+    });
+
+    var cancelBtn = form.querySelector('.btn-form-cancel');
+    if(cancelBtn){
+      cancelBtn.addEventListener('click', function(){
+        wrapper.hidden = true;
+        toggle.setAttribute('aria-expanded','false');
+        toggle.textContent = 'Send a message';
+        form.reset();
+        if(errorEl) errorEl.hidden = true;
+      });
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(errorEl) errorEl.hidden = true;
+      var valid = true;
+      form.querySelectorAll('[required]').forEach(function(f){
+        if(!f.value.trim()){ valid = false; f.focus(); }
+      });
+      if(!valid) return;
+      var submitBtn = form.querySelector('.cf-submit');
+      var orig = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      fetch('https://api.web3forms.com/submit', { method:'POST', body: new FormData(form) })
+        .then(function(r){ return r.json(); })
+        .then(function(j){
+          if(j.success){ form.hidden = true; if(successEl) successEl.hidden = false; }
+          else { throw new Error(j.message||'failed'); }
+        })
+        .catch(function(){
+          if(errorEl) errorEl.hidden = false;
+          submitBtn.disabled = false;
+          submitBtn.textContent = orig;
+        });
+    });
+  }
+
+  initForm('inline-form-toggle','inline-contact-form','inline-form','inline-error','inline-success');
+  initForm('footer-form-toggle','footer-contact-form','footer-form','footer-error','footer-success');
+})();
+</script>
+</body>
+</html>
